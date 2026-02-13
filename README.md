@@ -1,102 +1,170 @@
-# Sistema de Gestão - Banco de Dados
+# Enterprise Management API
+Modular Business Management Backend built with Spring Boot & PostgreSQL
 
-Este projeto é um sistema completo de gestão empresarial para a empresa, desenvolvido com **Spring Boot** e banco de dados **PostgreSQL**. Ele inclui funcionalidades de cadastro e gerenciamento de:
+A backend system designed to manage core enterprise operations including customers, suppliers, inventory, contracts, and service execution.
 
-- Clientes
-- Fornecedores
-- Funcionários
-- Materiais e Estoque
-- Movimentações de Estoque
-- Pedidos de Compra
-- Serviços e Execuções
-- Contratos
+Built following layered architecture principles with REST APIs and relational database modeling.
 
-## 🛠️ Tecnologias utilizadas
+---
 
-- Java 18
-- Spring Boot 3.4.4
-- Spring Data JPA
+## 🚀 Overview
+
+Enterprise Management API is a Spring Boot application that provides a structured backend for managing business entities and operational workflows.
+
+The system supports:
+
+- Customer and supplier management
+- Employee registry
+- Inventory control and stock movements
+- Purchase order processing
+- Service execution tracking
+- Contract management
+
+Designed to simulate a real-world enterprise backend environment with relational modeling and business rule validation.
+
+---
+
+## 🏗 Architecture
+
+The application follows a layered architecture:
+
+- **Controller Layer** – REST endpoints
+- **Service Layer** – Business rules and validation
+- **Repository Layer** – Data access via Spring Data JPA
+- **Persistence Layer** – PostgreSQL relational database
+
+Entity relationships include:
+
+- One-to-many
+- Many-to-many
+- Foreign key constraints
+- Transactional consistency
+
+---
+
+## 🧱 Tech Stack
+
+- **Java 18**
+- **Spring Boot 3.4.4**
+- **Spring Data JPA**
+- **PostgreSQL**
+- **Maven**
+- **Docker (optional)**
+- **JUnit (basic testing)**
+
+---
+
+## 📊 Core Features
+
+- Full CRUD operations for all entities
+- Relational database modeling
+- Inventory movement tracking with referential integrity
+- Service execution lifecycle management
+- Contract association with customers
+- Transactional operations using Spring
+
+---
+
+## 📂 Project Structure
+
+```
+
+src/
+├── main/java/com/mateus/empresa_crud
+│    ├── controller/
+│    ├── service/
+│    ├── repository/
+│    ├── model/
+│    └── config/
+└── resources/
+├── static/
+└── application.properties
+
+````
+
+---
+
+## 🗄 Database Design
+
+The system uses PostgreSQL with:
+
+- Primary keys
+- Foreign key constraints
+- Join tables for many-to-many relationships
+- Automatic schema update via Hibernate
+
+---
+
+## ⚙️ Running the Application
+
+### Requirements
+
+- Java 17+
 - PostgreSQL
-- HTML/CSS/JavaScript (com AJAX)
-- Maven
-- Docker (opcional)
-
-## 📂 Estrutura do Projeto
-
-```
-empresa-crud/
-├── src/
-│   ├── main/
-│   │   ├── java/com/mateus/empresa_crud/          # Código-fonte Java
-│   │   ├── resources/
-│   │   │   ├── static/                            # Páginas HTML
-│   │   │   └── application.properties             # Configurações Spring
-│   └── test/                                      # Testes (JUnit)
-├── pom.xml                                         # Gerenciamento de dependências Maven
-├── compose.yaml                                    # Configuração Docker (opcional)
-```
-
-## 🧪 Como rodar o projeto
-
-### Pré-requisitos
-
-- Java 17+ (projeto usa Java 18)
-- PostgreSQL (pode usar Docker)
 - Maven
 
-### 1. Clonar o repositório
+### Clone the repository
 
 ```bash
-git clone https://github.com/mateuscardososs/Sistema-Gestao-BancoDados.git
-cd Sistema-Gestao-BancoDados/empresa-crud
-```
+git clone https://github.com/mateuscardososs/enterprise-management-api.git
+cd enterprise-management-api
+````
 
-### 2. Criar o banco de dados
+### Configure database
 
-Você pode usar o seguinte script SQL no PostgreSQL:
-
-> 📁 Arquivo sugerido: `banco/script_estrutura.sql`
-
-```sql
--- Script simplificado do banco de dados
-```
-
-> Obs: O banco deve ser criado com o mesmo nome, usuário e senha configurados em `application.properties`.
-
-### 3. Configurar o `application.properties`
+Update `application.properties`:
 
 ```properties
-spring.datasource.url=jdbc:postgresql://localhost:5432/nome_do_banco
-spring.datasource.username=seu_usuario
-spring.datasource.password=sua_senha
+spring.datasource.url=jdbc:postgresql://localhost:5432/database_name
+spring.datasource.username=username
+spring.datasource.password=password
 spring.jpa.hibernate.ddl-auto=update
-spring.jpa.show-sql=true
-spring.jpa.properties.hibernate.format_sql=true
 ```
 
-### 4. Rodar o projeto
+### Run application
 
 ```bash
 ./mvnw spring-boot:run
 ```
 
-Ou, se estiver usando uma IDE como Eclipse ou IntelliJ, basta rodar a classe `EmpresaCrudApplication.java`.
+Or run the main class in your IDE.
 
-## 🚀 Funcionalidades principais
+---
 
-- CRUD completo de todas as entidades
-- Relacionamentos com chaves estrangeiras e tabelas intermediárias
-- Interface web simples (HTML + JS + Bootstrap)
-- Integração com banco de dados via Spring Data JPA
-- Cadastro de movimentações de estoque com vínculo a materiais
-- Execução e controle de serviços
+## 🐳 Running with Docker
 
-## ✅ Status
+```bash
+docker compose up --build
+```
 
-✔️ Projeto funcional  
-⚠️ Melhorias visuais e testes unitários podem ser adicionados  
+---
 
-## 🧠 Autor
+## 📌 Engineering Concepts Demonstrated
 
-**Mateus Cardoso**  
-Desenvolvido para estudos e prática de sistemas corporativos com banco de dados relacional.
+* Layered architecture
+* REST API design
+* Relational database modeling
+* Transaction management
+* Separation of concerns
+* Dependency injection
+* Modular backend structure
+
+---
+
+## 📈 Possible Extensions
+
+* JWT authentication
+* Role-based access control
+* Pagination and filtering
+* OpenAPI documentation
+* CI/CD pipeline
+* Production-ready logging
+
+---
+
+## 👨‍💻 Author
+
+Mateus Cardoso
+Backend & Data-Driven Systems Engineer
+
+```
